@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowUpRight, Banknote, BarChart3, Lock, Shield } from 'lucide-react';
 import { Feature } from '../components/Feature';
 import { Stat } from '../components/Stat';
 import { ResourceButton } from '../components/ResourceButton';
 import Footer from '../components/Footer';
+import JoinWaitlist from '../components/JoinWaitlist';
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <div className="min-h-screen bg-black text-white">
+      <JoinWaitlist
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+      />
       {/* Hero Section */}
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 to-transparent" />
@@ -21,7 +28,9 @@ function App() {
               Invest in Argentina's future through blockchain-powered tokenized stocks and bonds with automatic dividend distribution
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <button className="bg-green-500 hover:bg-green-600 text-black font-bold py-5 px-10 rounded-lg text-xl transition-all transform hover:scale-105">
+              <button 
+              onClick={() => setIsOpen(true)}
+              className="bg-green-500 hover:bg-green-600 text-black font-bold py-5 px-10 rounded-lg text-xl transition-all transform hover:scale-105">
                 Start Investing Now
               </button>
               <a href='#resources'>
@@ -123,7 +132,7 @@ function App() {
             <div className="bg-gradient-to-r from-green-900/50 to-emerald-900/50 rounded-2xl p-12 text-center">
             <h2 className="text-4xl font-bold mb-6">Ready to Start?</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                Join thousands of investors already earning dividends from Argentine markets
+                Join the waitlist and be the first to start earning dividends from Argentine markets
             </p>
             <button className="bg-green-500 hover:bg-green-600 text-black font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105 flex items-center gap-2 mx-auto">
                 Get Started <ArrowUpRight className="w-5 h-5" />

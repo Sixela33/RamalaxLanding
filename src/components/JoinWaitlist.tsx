@@ -30,13 +30,24 @@ type JoinWaitlistProps = {
     }
   };
 
+  console.log("isOpen",isOpen)
+
   return (
     <>
       {/* Popup Modal */}
       {isOpen && (
         <div className="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50">
           <div className="bg-gray-800 text-white p-6 rounded-lg w-96">
-            <h2 className="text-2xl font-bold mb-4">Join the Waitlist</h2>
+            <div className='flex flex-row'>
+              <h2 className="text-2xl font-bold mb-4">Join the Waitlist</h2>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="top-4 right-4 text-gray-300 hover:text-white"
+              >
+                &times;
+              </button>
+            </div>
+
             <form onSubmit={handleJoin} className="space-y-4">
               <input
                 type="email"
@@ -55,12 +66,7 @@ type JoinWaitlistProps = {
               </button>
             </form>
             {message && <p className="mt-4 text-sm text-center">{message}</p>}
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-gray-300 hover:text-white"
-            >
-              &times;
-            </button>
+            
           </div>
         </div>
       )}
