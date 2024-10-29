@@ -7,13 +7,11 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isWaitlistPopupOpen, setIsWaitlistPopupOpen] = useState(false)
 
-  console.log("isOpenNav", isWaitlistPopupOpen)
-
   const navLinks = [
     { name: 'Resources', href: '/#resources' },
     { name: 'Partners', href: '/#partners' },
     { name: 'Docs', href: '/docs' },
-    { name: 'FAQ', href: '/#faq' },
+    { name: 'FAQ', href: '/faq' },
   ];
 
   return (

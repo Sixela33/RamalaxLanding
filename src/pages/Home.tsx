@@ -70,8 +70,8 @@ function App() {
         <div className="border-y border-green-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <Stat number="$50M+" label="Total Value Locked" />
-                <Stat number="10,000+" label="Active Investors" />
+                <Stat number="$1M+" label="Total average daily volume in 2022" />
+                <Stat number="100+" label="Tradeable assets" />
                 <Stat number="99.9%" label="Platform Uptime" />
             </div>
             </div>

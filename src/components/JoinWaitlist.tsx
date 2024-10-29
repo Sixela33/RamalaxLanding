@@ -70,18 +70,24 @@ export default function JoinWaitlist({ isOpen, setIsOpen }: JoinWaitlistProps) {
                 className="w-full px-4 py-2 bg-gray-700 text-gray-300 rounded-lg outline-none focus:border focus:border-green-400 transition-colors"
                 required
               />
-              <button
-                type="submit"
-                className={`w-full px-4 py-2 rounded-lg text-white transition-colors ${
-                  isLoading
+              <div className='flex flex-row justify-around'>
+                <a href='https://calendly.com/alexis-janko/30min' className='border border-green-500 text-green-400 hover:bg-green-500/10 font-bold px-4 py-2 rounded-lg transition-colors' target='#'> 
+                  Arrange a meeting
+                </a>
+                <button
+                  type="submit"
+                  className={`w-1/4 px-4 py-2 rounded-lg text-white transition-colors ${
+                    isLoading
                     ? 'bg-green-400 cursor-not-allowed'
                     : 'bg-green-500 hover:bg-green-600'
-                }`}
-                disabled={isLoading}
-              >
-                {isLoading ? 'Joining...' : 'Join Waitlist'}
-              </button>
+                    }`}
+                    disabled={isLoading}
+                    >
+                  {isLoading ? 'Joining...' : 'Join Waitlist'}
+                </button>
+              </div>
             </form>
+
 
             {message && (
               <p
