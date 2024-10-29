@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { ArrowUpRight, Banknote, BarChart3, Lock, Shield } from 'lucide-react';
+import { useState } from 'react';
+import { Banknote, BarChart3, Lock } from 'lucide-react';
 import { Feature } from '../components/Feature';
 import { Stat } from '../components/Stat';
 import { ResourceButton } from '../components/ResourceButton';
 import Footer from '../components/Footer';
 import JoinWaitlist from '../components/JoinWaitlist';
+import ContactForm from '../components/ContactForm';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false)
@@ -125,20 +126,7 @@ function App() {
             </div>
         </div>
 
-        
-
-        {/* CTA Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <div className="bg-gradient-to-r from-green-900/50 to-emerald-900/50 rounded-2xl p-12 text-center">
-            <h2 className="text-4xl font-bold mb-6">Ready to Start?</h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                Join the waitlist and be the first to start earning dividends from Argentine markets
-            </p>
-            <button className="bg-green-500 hover:bg-green-600 text-black font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105 flex items-center gap-2 mx-auto">
-                Get Started <ArrowUpRight className="w-5 h-5" />
-            </button>
-            </div>
-        </div> 
+        <ContactForm/>
 
         <Footer/>
     </div>
