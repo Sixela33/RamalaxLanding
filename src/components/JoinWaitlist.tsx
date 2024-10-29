@@ -3,16 +3,17 @@ import { db } from '../firebase/FirebaseApp';
 import { collection, addDoc } from 'firebase/firestore/lite';
 
 type JoinWaitlistProps = {
-    isOpen: boolean;
-    setIsOpen: (isOpen: boolean) => void;
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
 };
 
-  export default function JoinWaitlist({ isOpen, setIsOpen }: JoinWaitlistProps) {
+export default function JoinWaitlist({ isOpen, setIsOpen }: JoinWaitlistProps) {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleJoin = async (e:any) => {
+  const handleJoin = async (e: any) => {
     e.preventDefault();
     if (!email) return;
 
@@ -20,9 +21,11 @@ type JoinWaitlistProps = {
     setMessage('');
     try {
       await addDoc(collection(db, 'waitlist'), { email });
+      setIsSuccess(true);
       setMessage('Successfully joined the waitlist!');
       setEmail('');
     } catch (error) {
+      setIsSuccess(false);
       setMessage('Failed to join the waitlist. Please try again.');
       console.error('Error adding document: ', error);
     } finally {
@@ -30,23 +33,27 @@ type JoinWaitlistProps = {
     }
   };
 
-  console.log("isOpen",isOpen)
-
   return (
     <>
-      {/* Popup Modal */}
       {isOpen && (
-        <div className="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50">
-          <div className="bg-gray-800 text-white p-6 rounded-lg w-96">
-            <div className='flex flex-row'>
-              <h2 className="text-2xl font-bold mb-4">Join the Waitlist</h2>
+        <div 
+          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 transition-opacity duration-300">
+          <div 
+            onClick={e => e.stopPropagation()}
+            className="bg-red bg-opacity-100 text-white p-8 rounded-lg w-11/12 max-w-md shadow-lg ">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-semibold">Join the Waitlist</h2>
               <button
                 onClick={() => setIsOpen(false)}
-                className="top-4 right-4 text-gray-300 hover:text-white"
+                className="text-gray-300 hover:text-red-500 transition-transform transform hover:scale-125 duration-200"
               >
-                &times;
+                X
               </button>
             </div>
+            <h4>
+              Be part of the future
+            </h4>
 
             <form onSubmit={handleJoin} className="space-y-4">
               <input
@@ -54,19 +61,31 @@ type JoinWaitlistProps = {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="w-full px-4 py-2 bg-gray-700 text-gray-300 rounded-lg outline-none focus:border-green-400"
+                className="w-full px-4 py-2 bg-gray-700 text-gray-300 rounded-lg outline-none focus:border focus:border-green-400 transition-colors"
                 required
               />
               <button
                 type="submit"
-                className="w-full px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+                className={`w-full px-4 py-2 rounded-lg text-white transition-colors ${
+                  isLoading
+                    ? 'bg-green-400 cursor-not-allowed'
+                    : 'bg-green-500 hover:bg-green-600'
+                }`}
                 disabled={isLoading}
               >
                 {isLoading ? 'Joining...' : 'Join Waitlist'}
               </button>
             </form>
-            {message && <p className="mt-4 text-sm text-center">{message}</p>}
-            
+
+            {message && (
+              <p
+                className={`mt-4 text-sm text-center transition-all duration-200 ${
+                  isSuccess ? 'text-green-400' : 'text-red-400'
+                }`}
+              >
+                {message}
+              </p>
+            )}
           </div>
         </div>
       )}
