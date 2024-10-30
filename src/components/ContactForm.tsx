@@ -116,15 +116,19 @@ export function ContactForm() {
               required
             />
           </div>
-          <div className='flex justify-end w-full	space-x-5'>
+          <div className="flex flex-col md:flex-row justify-end w-full sm:space-y-4  space-x-5">
             <button
               type="submit"
-              className="border border-green-500 text-green-400 hover:bg-green-500/10 font-bold py-4 px-10 rounded-lg text-xl transition-all"
+              className="border border-green-500 text-green-400 hover:bg-green-500/10 font-bold py-4 px-10 rounded-lg text-lg transition-all"
             >
               Leave a message
             </button>
-            <a href='https://calendly.com/alexis-janko/30min' className='bg-green-500 hover:bg-green-600 text-black font-bold py-4 px-10 rounded-lg text-xl transition-all transform hover:scale-105' target='#'> 
-              Arrange a meeting
+            <a 
+              href="https://calendly.com/alexis-janko/30min"
+              className="sm:w-full  bg-green-500 hover:bg-green-600 text-black font-bold py-4 px-10 rounded-lg text-lg transition-all transform hover:scale-105"
+              target="_blank" rel="noopener noreferrer"
+            > 
+              Arrange a Meeting
             </a>
           </div>
         </form>

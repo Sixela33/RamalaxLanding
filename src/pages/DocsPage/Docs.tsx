@@ -1,4 +1,3 @@
-
 import { BookOpen, Coins, FileText } from 'lucide-react';
 import GettingStarted from './GettingStarted/GettingStarted';
 import HowItWorks from './GettingStarted/HowItWorks';
@@ -42,13 +41,23 @@ const sections = [
 
 export function DocsPage() {
   const [activeSection, setActiveSection] = useState('intro');
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      <div className="container mx-auto px-6 py-12">
-        <div className="flex gap-12">
+      <div className="container mx-auto px-4 sm:px-6 py-8">
+        <div className="md:flex md:gap-12">
+          
+          {/* Sidebar Toggle for Small Screens */}
+          <button 
+            className="md:hidden text-green-400 mb-4" 
+            onClick={() => setSidebarOpen(!isSidebarOpen)}
+          >
+            {isSidebarOpen ? 'Close' : 'Open'} Sidebar
+          </button>
+          
           {/* Sidebar */}
-          <div className="w-64 flex-shrink-0">
+          <div className={`${isSidebarOpen ? 'block' : 'hidden'} md:block md:w-64 flex-shrink-0`}>
             <div className="sticky top-6">
               {sections.map((section) => (
                 <div key={section.title} className="mb-8">
@@ -60,7 +69,10 @@ export function DocsPage() {
                     {section.items.map((item) => (
                       <button
                         key={item.id}
-                        onClick={() => setActiveSection(item.id)}
+                        onClick={() => {
+                          setActiveSection(item.id);
+                          setSidebarOpen(false); // Close sidebar on selection
+                        }}
                         className={`text-left px-4 py-2 rounded-lg transition-colors ${
                           activeSection === item.id
                             ? 'bg-green-500/20 text-green-400'
@@ -82,7 +94,6 @@ export function DocsPage() {
               <h1 className="text-4xl font-bold mb-8">Documentation</h1>
 
               {activeSection === 'intro' && <GettingStarted/>}
-
               {activeSection === 'how-it-works' && <HowItWorks/>}
               {activeSection === 'stocks' && <Stocks/>}
               {activeSection === 'bonds' && <Bonds/>}
