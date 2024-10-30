@@ -1,4 +1,5 @@
-import { BookOpen, Coins, FileText } from 'lucide-react';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 import GettingStarted from './GettingStarted/GettingStarted';
 import HowItWorks from './GettingStarted/HowItWorks';
 import { Stocks } from './Asset types/Stocks';
@@ -7,104 +8,70 @@ import { AssetBacking } from './Asset types/AssetBacking';
 import { KYCRequirements } from './LegalYCompliance/KYCRequirements';
 import { RegulatoryFramework } from './LegalYCompliance/RegulatoryFramework';
 import { TermsOfService } from './LegalYCompliance/TermsOfService';
-import { useState } from 'react';
-
-const sections = [
-  {
-    title: 'Getting Started',
-    icon: BookOpen,
-    items: [
-      { title: 'What is Ramelax?', id: 'intro' },
-      { title: 'How it Works', id: 'how-it-works' },
-      { title: 'Creating an Account', id: 'account' },
-    ],
-  },
-  {
-    title: 'Asset Types',
-    icon: Coins,
-    items: [
-      { title: 'Stocks', id: 'stocks' },
-      { title: 'Bonds', id: 'bonds' },
-      { title: 'Asset Backing', id: 'backing' },
-    ],
-  },
-  {
-    title: 'Legal & Compliance',
-    icon: FileText,
-    items: [
-      { title: 'Regulatory Framework', id: 'regulatory' },
-      { title: 'KYC Requirements', id: 'kyc' },
-      { title: 'Terms of Service', id: 'terms' },
-    ],
-  },
-];
+import { Sidebar } from '../../components/Sidebar';
 
 export function DocsPage() {
   const [activeSection, setActiveSection] = useState('intro');
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
+  const renderContent = () => {
+    switch (activeSection) {
+      case 'intro':
+        return <GettingStarted />;
+      case 'how-it-works':
+        return <HowItWorks />;
+      case 'stocks':
+        return <Stocks />;
+      case 'bonds':
+        return <Bonds />;
+      case 'backing':
+        return <AssetBacking />;
+      case 'regulatory':
+        return <RegulatoryFramework />;
+      case 'kyc':
+        return <KYCRequirements />;
+      case 'terms':
+        return <TermsOfService />;
+      case 'account':
+        return <TermsOfService />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 text-white">
+      {/* Overlay for mobile sidebar */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+      
       <div className="container mx-auto px-4 sm:px-6 py-8">
+        {/* Toggle Button */}
+        <button
+          className="md:hidden flex items-center gap-2 text-green-400 mb-4"
+          onClick={() => setSidebarOpen(!isSidebarOpen)}
+        >
+          {isSidebarOpen ? <X /> : <Menu />}
+          <span>{isSidebarOpen ? 'Close Menu' : 'Open Menu'}</span>
+        </button>
+
         <div className="md:flex md:gap-12">
-          
-          {/* Sidebar Toggle for Small Screens */}
-          <button 
-            className="md:hidden text-green-400 mb-4" 
-            onClick={() => setSidebarOpen(!isSidebarOpen)}
-          >
-            {isSidebarOpen ? 'Close' : 'Open'} Sidebar
-          </button>
-          
-          {/* Sidebar */}
-          <div className={`${isSidebarOpen ? 'block' : 'hidden'} md:block md:w-64 flex-shrink-0`}>
-            <div className="sticky top-6">
-              {sections.map((section) => (
-                <div key={section.title} className="mb-8">
-                  <div className="flex items-center gap-2 mb-4">
-                    <section.icon className="h-5 w-5 text-green-400" />
-                    <h3 className="font-semibold">{section.title}</h3>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    {section.items.map((item) => (
-                      <button
-                        key={item.id}
-                        onClick={() => {
-                          setActiveSection(item.id);
-                          setSidebarOpen(false); // Close sidebar on selection
-                        }}
-                        className={`text-left px-4 py-2 rounded-lg transition-colors ${
-                          activeSection === item.id
-                            ? 'bg-green-500/20 text-green-400'
-                            : 'text-gray-400 hover:text-green-400'
-                        }`}
-                      >
-                        {item.title}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <Sidebar
+            activeSection={activeSection}
+            setActiveSection={setActiveSection}
+            isSidebarOpen={isSidebarOpen}
+            setSidebarOpen={setSidebarOpen}
+          />
 
           {/* Main Content */}
           <div className="flex-1 max-w-3xl">
             <div className="prose prose-invert prose-green">
               <h1 className="text-4xl font-bold mb-8">Documentation</h1>
-
-              {activeSection === 'intro' && <GettingStarted/>}
-              {activeSection === 'how-it-works' && <HowItWorks/>}
-              {activeSection === 'stocks' && <Stocks/>}
-              {activeSection === 'bonds' && <Bonds/>}
-              {activeSection === 'backing' && <AssetBacking/>}
-              {activeSection === 'regulatory' && <RegulatoryFramework/>}
-              {activeSection === 'kyc' && <KYCRequirements/>}  
-              {activeSection === 'terms' && <TermsOfService/>}  
-              {activeSection === 'account' && <TermsOfService/>}
-
-
-              {/* Additional sections would follow the same pattern */}
+              {renderContent()}
             </div>
           </div>
         </div>
@@ -112,3 +79,5 @@ export function DocsPage() {
     </div>
   );
 }
+
+export default DocsPage;
