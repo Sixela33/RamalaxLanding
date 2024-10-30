@@ -119,11 +119,11 @@ export function ContactForm() {
           <div className='flex justify-end w-full	space-x-5'>
             <button
               type="submit"
-              className="border border-green-500 text-green-400 hover:bg-green-500/10 font-bold py-5 px-10 rounded-lg text-xl transition-all"
+              className="border border-green-500 text-green-400 hover:bg-green-500/10 font-bold py-4 px-10 rounded-lg text-xl transition-all"
             >
               Leave a message
             </button>
-            <a href='https://calendly.com/alexis-janko/30min' className='bg-green-500 hover:bg-green-600 text-black font-bold py-5 px-10 rounded-lg text-xl transition-all transform hover:scale-105' target='#'> 
+            <a href='https://calendly.com/alexis-janko/30min' className='bg-green-500 hover:bg-green-600 text-black font-bold py-4 px-10 rounded-lg text-xl transition-all transform hover:scale-105' target='#'> 
               Arrange a meeting
             </a>
           </div>

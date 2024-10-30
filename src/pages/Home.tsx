@@ -77,6 +77,37 @@ function App() {
             </div>
         </div>
 
+
+        {/* Partners Section */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24" id="partners">
+            <h2 className="text-3xl font-bold text-center mb-12">Trusted Partners</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center">
+            <img 
+                src={"/Alchemy.svg"}
+                alt="Alchemy"
+                className="w-full h-12 object-contain opacity-50 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"/>
+            <img 
+                src={"/Alpaca.svg"}
+                alt="Alpaca"
+                className="w-full h-12 object-contain opacity-50 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"/>
+            <img 
+                src={"/Base.svg"}
+                alt="Base"
+                className="w-full h-12 object-contain opacity-50 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
+            />
+                        <img 
+                src={"/ChainLink.svg"}
+                alt="ChainLink"
+                className="w-full h-12 object-contain opacity-50 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
+            />
+                        <img 
+                src={"/Ethereum.svg"}
+                alt="Ethereum"
+                className="w-full h-12 object-contain opacity-50 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
+            />
+            </div>
+        </div>
+
         {/* Resources Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24" id="resources">
             <h2 className="text-3xl font-bold text-center mb-12">Resources</h2>
@@ -95,33 +126,6 @@ function App() {
                 title="FAQ"
                 description="Common questions about our platform and services"
                 href="/faq"
-            />
-            </div>
-        </div>
-
-        {/* Partners Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24" id="partners">
-            <h2 className="text-3xl font-bold text-center mb-12">Trusted Partners</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center">
-            <img 
-                src="https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?w=200&h=100&fit=crop&auto=format&q=80" 
-                alt="Bank Partner"
-                className="w-full h-12 object-contain opacity-50 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
-            />
-            <img 
-                src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=200&h=100&fit=crop&auto=format&q=80" 
-                alt="Exchange Partner"
-                className="w-full h-12 object-contain opacity-50 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
-            />
-            <img 
-                src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=200&h=100&fit=crop&auto=format&q=80" 
-                alt="Technology Partner"
-                className="w-full h-12 object-contain opacity-50 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
-            />
-            <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=100&fit=crop&auto=format&q=80" 
-                alt="Security Partner"
-                className="w-full h-12 object-contain opacity-50 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
             />
             </div>
         </div>

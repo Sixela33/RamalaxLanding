@@ -1,5 +1,3 @@
-import React from 'react'
-import { Shield } from 'lucide-react'
 import RamelaxLogo from './RamelaxLogo'
 
 export default function Footer() {
@@ -9,9 +7,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <RamelaxLogo/>
             <div className="flex gap-8 text-gray-400">
-            <a href="/about" className="hover:text-green-400">About</a>
+            <a href="/faq" className="hover:text-green-400">About</a>
             <a href="/docs" className="hover:text-green-400">Documentation</a>
-            <a href="/contact" className="hover:text-green-400">Contact</a>
+            <a href="/#resources" className="hover:text-green-400">Contact</a>
             </div>
         </div>
         </div>
