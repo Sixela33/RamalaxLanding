@@ -1,4 +1,5 @@
 import RamelaxLogo from './RamelaxLogo'
+import {HashLink} from 'react-router-hash-link'
 
 export default function Footer() {
   return (
@@ -7,9 +8,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <RamelaxLogo/>
             <div className="flex gap-8 text-gray-400">
-            <a href="/faq" className="hover:text-green-400">About</a>
-            <a href="/docs" className="hover:text-green-400">Documentation</a>
-            <a href="/#resources" className="hover:text-green-400">Contact</a>
+            <HashLink to="/faq#nav" className="hover:text-green-400">About</HashLink>
+            <HashLink to="/docs#nav" className="hover:text-green-400">Documentation</HashLink>
+            <HashLink to="/#resources" className="hover:text-green-400">Contact</HashLink>
             </div>
         </div>
         </div>

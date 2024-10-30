@@ -1,26 +1,21 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import RamelaxLogo from './RamelaxLogo';
-import JoinWaitlist from './JoinWaitlist';
+import { HashLink } from 'react-router-hash-link';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isWaitlistPopupOpen, setIsWaitlistPopupOpen] = useState(false)
 
   const navLinks = [
     { name: 'Resources', href: '/#resources' },
     { name: 'Partners', href: '/#partners' },
-    { name: 'Docs', href: '/docs' },
-    { name: 'FAQ', href: '/faq' },
+    { name: 'Docs', href: '/docs#nav' },
+    { name: 'FAQ', href: '/faq#nav' },
   ];
 
   return (
     <>
-      <JoinWaitlist
-        isOpen={isWaitlistPopupOpen}
-        setIsOpen={setIsWaitlistPopupOpen}
-      />
-    <nav className="w-full bg-black/80 backdrop-blur-md z-50 border-b border-green-900/50">
+    <nav id='nav' className="w-full bg-black/80 backdrop-blur-md z-50 border-b border-green-900/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -29,19 +24,20 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <HashLink
               key={link.name}
-              href={link.href}
+              to={link.href}
               className="text-gray-300 hover:text-green-400 transition-colors"
               >
                 {link.name}
-              </a>
+              </HashLink>
             ))}
-            <button 
-              onClick={() => setIsWaitlistPopupOpen(true)}
+            <a 
+              target='_blank'
+              href='https://tally.so/r/w5qlAM'
               className="bg-green-500 hover:bg-green-600 text-black font-semibold py-2 px-4 rounded-lg transition-all transform hover:scale-105">
-                Launch App
-            </button>
+                Early Access
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -69,12 +65,12 @@ export default function Navbar() {
                   {link.name}
                 </a>
               ))}
-              <button 
-                onClick={() => setIsWaitlistPopupOpen(true)}
-                className="bg-green-500 hover:bg-green-600 text-black font-semibold py-2 px-4 rounded-lg transition-all transform hover:scale-105 w-full"
-                >
-                Launch App
-              </button>
+              <a 
+                target='_blank'
+                href='https://tally.so/r/w5qlAM'
+                className="bg-green-500 hover:bg-green-600 text-black font-semibold py-2 px-4 rounded-lg transition-all transform hover:scale-105">
+                  Early Access
+              </a>
             </div>
           </div>
         )}

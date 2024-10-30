@@ -1,5 +1,4 @@
-import React from 'react';
-import { HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { HelpCircle } from 'lucide-react';
 import { FAQItem } from '../components/FAQItem';
 
 interface FAQItem {

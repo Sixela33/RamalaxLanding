@@ -29,11 +29,12 @@ function App() {
               Invest in Argentina's future through blockchain-powered tokenized stocks and bonds with automatic dividend distribution
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <button 
-              onClick={() => setIsOpen(true)}
-              className="bg-green-500 hover:bg-green-600 text-black font-bold py-5 px-10 rounded-lg text-xl transition-all transform hover:scale-105">
-                Start Investing Now
-              </button>
+              <a 
+                target='_blank'
+                href='https://tally.so/r/w5qlAM'
+                className="bg-green-500 hover:bg-green-600 text-black font-bold py-5 px-10 rounded-lg text-xl transition-all transform hover:scale-105">
+                Start Investing
+              </a>
               <a href='#resources'>
                 <button className="border border-green-500 text-green-400 hover:bg-green-500/10 font-bold py-5 px-10 rounded-lg text-xl transition-all">
                     Learn More
@@ -44,6 +45,8 @@ function App() {
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
       </div>
+
+
 
       {/* Features Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24" id="markets">
@@ -95,14 +98,9 @@ function App() {
                 alt="Base"
                 className="w-full h-12 object-contain opacity-50 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
             />
-                        <img 
+            <img 
                 src={"/ChainLink.svg"}
                 alt="ChainLink"
-                className="w-full h-12 object-contain opacity-50 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
-            />
-                        <img 
-                src={"/Ethereum.svg"}
-                alt="Ethereum"
                 className="w-full h-12 object-contain opacity-50 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
             />
             </div>
@@ -115,11 +113,11 @@ function App() {
             <ResourceButton
                 title="Whitepaper"
                 description="Learn about our technology, tokenomics, and vision for the future"
-                href="/whitepaper"
+                href="/docs"
             />
             <ResourceButton
                 title="Documentation"
-                description="Technical documentation and API references for developers"
+                description="Learn about our technology, tokenomics, and vision for the future"
                 href="/docs"
             />
             <ResourceButton

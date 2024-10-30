@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { BookOpen, Coins, FileText } from 'lucide-react';
 import GettingStarted from './GettingStarted/GettingStarted';
 import HowItWorks from './GettingStarted/HowItWorks';
@@ -8,6 +8,7 @@ import { AssetBacking } from './Asset types/AssetBacking';
 import { KYCRequirements } from './LegalYCompliance/KYCRequirements';
 import { RegulatoryFramework } from './LegalYCompliance/RegulatoryFramework';
 import { TermsOfService } from './LegalYCompliance/TermsOfService';
+import { useState } from 'react';
 
 const sections = [
   {
@@ -40,7 +41,7 @@ const sections = [
 ];
 
 export function DocsPage() {
-  const [activeSection, setActiveSection] = React.useState('intro');
+  const [activeSection, setActiveSection] = useState('intro');
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
