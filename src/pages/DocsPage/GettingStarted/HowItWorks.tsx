@@ -21,8 +21,10 @@ export default function HowItWorks() {
           <h3 className="text-xl font-semibold">Dividend Distribution</h3>
         </div>
         <p className="text-gray-400">
-          When companies pay dividends, they are automatically distributed to token holders' wallets in
-          stablecoins, providing instant access to earnings.
+          Dividends are seamlessly distributed to token holders' wallets in stablecoins, 
+          providing immediate access to earnings as they are paid out. 
+          This automation enhances liquidity for investors, 
+          who can reinvest or withdraw dividends without delay, maximizing their financial flexibility.
         </p>
       </div>
       <div className="bg-gray-800/50 rounded-xl p-6">
