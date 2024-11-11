@@ -31,8 +31,11 @@ export default function HowItWorks() {
           <h3 className="text-xl font-semibold">Regulatory Compliance</h3>
         </div>
         <p className="text-gray-400">
-          Our platform operates under full compliance with Argentine securities regulations and international
-          standards for digital assets.
+          Our operations are underpinned by robust regulatory practices. 
+          Ramelax operates in full compliance with Argentine securities regulations, 
+          ensuring we meet both national and international standards for digital assets. 
+          With adherence to stringent regulations, 
+          our platform assures investors that their participation is safeguarded under Argentine law and international norms.
         </p>
       </div>
     </div>
