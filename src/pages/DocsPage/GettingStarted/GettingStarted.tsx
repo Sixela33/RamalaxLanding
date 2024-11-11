@@ -5,9 +5,11 @@ export default function GettingStarted() {
     <section id="intro">
         <h2 className="text-2xl font-bold mb-6">What is Ramelax?</h2>
         <p className="text-gray-400 mb-6">
-            Ramelax is Argentina's premier asset tokenization platform, enabling investors worldwide to access
-            Argentine financial markets through blockchain technology. We transform traditional financial assets into
-            digital tokens, making investment more accessible, transparent, and efficient.
+          Ramelax is the first platform in Argentina to bring asset tokenization to a global audience, 
+          unlocking the country’s financial markets for international investors through blockchain technology.
+          At Ramelax, we convert traditional financial assets into digital tokens, providing new levels of accessibility,
+          transparency, and operational efficiency. This cutting-edge approach enables worldwide access to Argentine assets,
+          democratizing investments that were once only available to a select few.
         </p>
         <div className="bg-gray-800/50 rounded-xl p-6 mb-8">
         <h3 className="text-xl font-semibold mb-4">Key Benefits</h3>
